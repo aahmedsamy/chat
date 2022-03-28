@@ -4,12 +4,20 @@
 <head>
     <meta charset="utf-8"/>
     <title>Chat Room {{ room_name }}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
 </head>
 <body>
-<label for="chat-log"></label><textarea id="chat-log" cols="100" rows="20"></textarea><br>
-<label for="chat-message-input"></label><input class="textInput" id="chat-message-input" type="text" size="100"><br>
-<input class="textInput" id="chat-message-submit" type="button" value="Send">
-{{ room_name|json_script:"room-name" }}
-<script src="{% static  'room.js' %}"></script>
+<a class="leaveButton" href="{% url 'index' %}">Leave Room</a>
+<div class="container">
+    <div id="chat-log"></div>
+</div>
+<div class="container">
+    <label for="chat-message-input"></label><input class="textInput" id="chat-message-input" type="text" size="100"><br>
+    <input class="button" id="chat-message-submit" type="button" value="Send">
+    {{ room_name|json_script:"room-name" }}
+</div>
+
+<script src="{% static  'js/room.js' %}"></script>
 </body>
 </html>
